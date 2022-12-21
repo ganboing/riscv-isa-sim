@@ -5656,11 +5656,11 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 #ifdef __cplusplus
 extern "C"
 #endif
-char exit ();
+void exit (int e);
 int
 main ()
 {
-return exit ();
+exit (0);
   ;
   return 0;
 }
@@ -5704,11 +5704,11 @@ cat confdefs.h - <<_ACEOF >conftest.$ac_ext
 #ifdef __cplusplus
 extern "C"
 #endif
-char exit ();
+void exit (int e);
 int
 main ()
 {
-return exit ();
+exit (0);
   ;
   return 0;
 }
