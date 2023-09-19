@@ -372,7 +372,7 @@ void sim_t::set_rom()
   const int align = 0x1000;
   rom.resize((rom.size() + align - 1) / align * align);
 
-  std::shared_ptr<rom_device_t> boot_rom(new rom_device_t(rom));
+  std::shared_ptr<rom_device_t> boot_rom(new rom_device_t(rom, false));
   add_device(DEFAULT_RSTVEC, boot_rom);
 }
 

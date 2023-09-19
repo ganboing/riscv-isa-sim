@@ -28,12 +28,13 @@ class bus_t : public abstract_device_t {
 
 class rom_device_t : public abstract_device_t {
  public:
-  rom_device_t(std::vector<char> data);
+  rom_device_t(std::vector<char> data, bool readonly = true);
   bool load(reg_t addr, size_t len, uint8_t* bytes) override;
   bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
   const std::vector<char>& contents() { return data; }
  private:
   std::vector<char> data;
+  bool readonly;
 };
 
 class abstract_mem_t : public abstract_device_t {
