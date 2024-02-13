@@ -35,6 +35,11 @@ const size_t sim_t::INTERLEAVE;
 extern device_factory_t* clint_factory;
 extern device_factory_t* plic_factory;
 extern device_factory_t* ns16550_factory;
+extern device_factory_t* jh7110_aon_crg_factory;
+extern device_factory_t* jh7110_aon_iomux_factory;
+extern device_factory_t* jh7110_sys_crg_factory;
+extern device_factory_t* jh7110_sys_iomux_factory;
+extern device_factory_t* jh7110_otp_factory;
 
 sim_t::sim_t(const cfg_t *cfg, bool halted,
              std::vector<std::pair<reg_t, abstract_mem_t*>> mems,
@@ -118,7 +123,12 @@ sim_t::sim_t(const cfg_t *cfg, bool halted,
   std::vector<const device_factory_t*> device_factories = {
     clint_factory, // clint must be element 0
     plic_factory, // plic must be element 1
-    ns16550_factory};
+    ns16550_factory,
+    jh7110_aon_crg_factory,
+    jh7110_aon_iomux_factory,
+    jh7110_sys_crg_factory,
+    jh7110_sys_iomux_factory,
+    jh7110_otp_factory};
   device_factories.insert(device_factories.end(),
                           plugin_device_factories.begin(),
                           plugin_device_factories.end());

@@ -214,6 +214,7 @@ bool ns16550_t::load(reg_t addr, size_t len, uint8_t* bytes)
 
   if (ret) {
     bytes[0] = val;
+    memset(bytes + 1, 0, reg_io_width - 1);
   }
   if (update) {
     update_interrupt();

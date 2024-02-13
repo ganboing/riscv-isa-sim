@@ -166,6 +166,52 @@ class ns16550_t : public abstract_device_t {
   static const int MAX_BACKOFF = 16;
 };
 
+
+class jh7110_aon_crg_t : public abstract_device_t {
+public:
+  jh7110_aon_crg_t();
+  bool load(reg_t addr, size_t len, uint8_t* bytes) override;
+  bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
+  //void tick(reg_t rtc_ticks) override;
+  size_t size() { return 0x10000; }
+};
+
+class jh7110_aon_iomux_t : public abstract_device_t {
+public:
+  jh7110_aon_iomux_t();
+  bool load(reg_t addr, size_t len, uint8_t* bytes) override;
+  bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
+  //void tick(reg_t rtc_ticks) override;
+  size_t size() { return 0x10000; }
+};
+
+class jh7110_sys_crg_t : public abstract_device_t {
+public:
+  jh7110_sys_crg_t();
+  bool load(reg_t addr, size_t len, uint8_t* bytes) override;
+  bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
+  //void tick(reg_t rtc_ticks) override;
+  size_t size() { return 0x10000; }
+};
+
+class jh7110_sys_iomux_t : public abstract_device_t {
+public:
+  jh7110_sys_iomux_t();
+  bool load(reg_t addr, size_t len, uint8_t* bytes) override;
+  bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
+  //void tick(reg_t rtc_ticks) override;
+  size_t size() { return 0x10000; }
+};
+
+class jh7110_otp_t : public abstract_device_t {
+public:
+  jh7110_otp_t();
+  bool load(reg_t addr, size_t len, uint8_t* bytes) override;
+  bool store(reg_t addr, size_t len, const uint8_t* bytes) override;
+  //void tick(reg_t rtc_ticks) override;
+  size_t size() { return 0x10000; }
+};
+
 template<typename T>
 void write_little_endian_reg(T* word, reg_t addr, size_t len, const uint8_t* bytes)
 {
